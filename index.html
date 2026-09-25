@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tornado Strength Lab</title>
+  <meta name="description" content="An interactive model of tornado strength on the Enhanced Fujita scale, and what it does to a car, a cow, a house and a tree.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Interactive model</p>
+      <h1>Tornado Strength Lab</h1>
+      <p class="lede">Pick a tornado strength on the Enhanced Fujita (EF) scale. Pick an object. Then send the tornado and watch what happens.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="lab" aria-label="Tornado simulator">
+      <div class="stage">
+        <canvas id="scene" role="img" aria-label="Tornado scene"></canvas>
+        <div class="stage-chip" id="stageChip">EF2 · 111–135 mph</div>
+        <div class="stage-chip stage-note" id="stageNote" hidden></div>
+        <p class="stage-hint" id="stageHint">Press <strong>Send the tornado</strong> to start.</p>
+      </div>
+
+      <aside class="panel">
+        <div class="control">
+          <div class="control-head">
+            <label for="ef">Tornado strength</label>
+            <span class="ef-badge" id="efBadge">EF2</span>
+          </div>
+          <input type="range" id="ef" min="0" max="5" step="1" value="2">
+          <div class="ticks" aria-hidden="true">
+            <span>EF0</span><span>EF1</span><span>EF2</span><span>EF3</span><span>EF4</span><span>EF5</span>
+          </div>
+          <p class="wind"><strong id="efLabel">Considerable</strong> · <span id="efWind">111–135 mph</span> <span class="muted" id="efKmh">(178–217 km/h)</span></p>
+        </div>
+
+        <div class="control">
+          <span class="control-label" id="objLabel">Object</span>
+          <div class="objects" role="group" aria-labelledby="objLabel" id="objects"></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="sendBtn" type="button">Send the tornado</button>
+          <button class="btn" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="result" aria-live="polite">
+          <p class="result-kicker" id="resKicker">Car vs EF2</p>
+          <h2 id="resTitle">Lifted</h2>
+          <p class="result-text" id="resText"></p>
+          <div class="meter" id="meter" aria-hidden="true"></div>
+          <p class="meter-label"><span>Damage</span><span id="resSev">Considerable</span></p>
+          <p class="fact" id="resFact"></p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="block">
+      <h2>Damage at a glance</h2>
+      <p class="section-lede">What each strength does to each object. Click a box to load it in the lab.</p>
+      <div class="matrix-scroll">
+        <table class="matrix" id="matrix"></table>
+      </div>
+    </section>
+
+    <section class="block two-col">
+      <div>
+        <h2>What is the EF scale?</h2>
+        <p>Nobody can easily measure the wind inside a tornado. So after a storm, experts study the damage and work backward to estimate how fast the wind was. That estimate is the <strong>Enhanced Fujita scale</strong>, used in the United States since 2007.</p>
+        <p>The speeds are 3‑second gusts. EF0 is the weakest. EF5 is the strongest, and it is rare.</p>
+        <ol class="ef-list" id="efList"></ol>
+      </div>
+      <div class="safety">
+        <h2>If a tornado warning is issued</h2>
+        <ul>
+          <li>Go to the lowest floor of a sturdy building.</li>
+          <li>Pick a small inside room with no windows, like a closet or bathroom.</li>
+          <li>Cover your head and neck.</li>
+          <li>Cars and mobile homes are <strong>not</strong> safe places to shelter.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <p>A simplified model for learning. Real damage depends on how things are built, how long the wind lasts, and what debris is flying. Descriptions are based on the Enhanced Fujita scale damage indicators used by the U.S. National Weather Service.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
