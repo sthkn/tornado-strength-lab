@@ -2,7 +2,7 @@
 
 An interactive model of tornado strength on the Enhanced Fujita (EF) scale. Pick a strength from EF0 to EF5, pick an object, and send the tornado to see what happens.
 
-Objects: car, semi truck, school bus, cow, house, mobile home, barn, tree, and 3-, 7-, 15- and 30-story buildings.
+Objects: car, semi truck, school bus, small plane, cow, house, mobile home, barn, tree, highway bridge, and 3-, 7-, 15- and 30-story buildings.
 
 ## Run it
 
